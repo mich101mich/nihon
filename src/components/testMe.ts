@@ -66,7 +66,7 @@ export class TestMe {
 			if (!correct) {
 				Boxes.move(this.currentWord, BOX_NEW + 1, false);
 				for (const header of languages) {
-					const td = this.fields.get(header);
+					const td = this.getField(header);
 					const input = td.querySelectorAll("input")[0] || null;
 					if (input) {
 						td.innerHTML = "";
@@ -125,7 +125,7 @@ export class TestMe {
 		const given = Math.floor(Math.random() * languages.length);
 		for (let i = 0; i < languages.length; i++) {
 			const language = languages[i];
-			const td = this.fields.get(language);
+			const td = this.getField(language);
 			td.innerHTML = td.innerText = "";
 			if (i == given || selectedBox == 0) {
 				td.innerText = this.currentWord[language];
@@ -148,6 +148,14 @@ export class TestMe {
 
 		Overview.setHidden(false);
 		Overview.refresh();
+	}
+
+	static getField(lang: Language) {
+		const field = this.fields.get(lang);
+		if (!field) {
+			throw new Error("Missing Input Field");
+		}
+		return field;
 	}
 }
 

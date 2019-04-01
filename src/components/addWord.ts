@@ -48,7 +48,7 @@ export class AddWord {
 
 			let data: Data = { english: "", japanese: "", romaji: "", type: Type.Noun, box: BOX_NEW };
 			for (const language of languages) {
-				data[language] = this.fields.get(language).value;
+				data[language] = this.getField(language).value;
 			}
 			data.type = this.fieldType.selectedIndex;
 
@@ -67,5 +67,13 @@ export class AddWord {
 	static finish() {
 		this.button.hidden = false;
 		this.base.hidden = true;
+	}
+
+	static getField(lang: Language) {
+		const field = this.fields.get(lang);
+		if (!field) {
+			throw new Error("Missing Input Field");
+		}
+		return field;
 	}
 }
