@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<div id="overview">
+		Learning Overview:
+		<table id="overviewTable">
+		</table>
+
+		<input type="search" id="searchBox">
+		<div id="search" hidden>
+		</div>
+
+		<br>
+
+		<div id="wordList" hidden>
+			<div id="wordListTitle"></div>
+			<table id="wordListTable">
+				<tr>
+					<th style="width: 8%" id="wordListHeaderType">Type</th>
+					<th style="width: 24%" id="wordListHeaderEnglish">English</th>
+					<th style="width: 24%" id="wordListHeaderJapanese">Japanese</th>
+					<th style="width: 24%" id="wordListHeaderRomaji">Romaji</th>
+					<th style="width: 20%">Actions</th>
+				</tr>
+			</table>
+			<br>
+			<button id="wordListHide">Hide</button>
+
+			<br><br><br>
+
+		</div>
+	</div>
+
+	<button id="testMeButton" class="goButton" disabled>Test Me!</button>
+
+	<div id="testMe" hidden>
+		<form id="testMeForm">
+			<table>
+				<tr>
+					<th>Language</th>
+					<th>Word</th>
+				</tr>
+				<tr>
+					<td>Type</td>
+					<td id="testMeFieldType">?</td>
+				</tr>
+				<tr>
+					<td>English</td>
+					<td id="testMeFieldEnglish">?</td>
+				</tr>
+				<tr>
+					<td>Japanese</td>
+					<td id="testMeFieldJapanese">?</td>
+				</tr>
+				<tr>
+					<td>Romaji</td>
+					<td id="testMeFieldRomaji">?</td>
+				</tr>
+			</table>
+			<button id="testMeSkip" type="button">Skip</button>
+			<button class="goButton" type="submit">Continue</button>
+		</form>
+		<br><br><br>
+		<button id="testMeEndSession" class="cancelButton">End Session</button>
+	</div>
+
+	<br><br><br>
+
+	<button id="addWordButton" disabled>Add new Word</button>
+
+	<form id="addWord" hidden>
+		Add new Word:
+		<table id="addWordTable">
+			<tr>
+				<th style="width: 10%">Type</th>
+				<th style="width: 30%">English</th>
+				<th style="width: 30%">Japanese</th>
+				<th style="width: 30%">Romaji</th>
+			</tr>
+			<tr>
+				<td>
+					<select id="addWordFieldType">
+						<option>Noun</option>
+						<option>Adjective</option>
+						<option>Verb</option>
+						<option>Sentence</option>
+					</select>
+				</td>
+				<td><input type="text" id="addWordFieldEnglish" placeholder="English" required></td>
+				<td><input type="text" id="addWordFieldJapanese" placeholder="Japanese" required></td>
+				<td><input type="text" id="addWordFieldRomaji" placeholder="Romaji" required></td>
+			</tr>
+		</table>
+		<button id="addWordCancel" class="cancelButton" type="reset">Cancel</button>
+		<button id="addWordAdd" class="goButton" type="submit">Add</button>
+	</form>
+
+	<script src="bundle.js"></script>
+</body>
+
+</html>

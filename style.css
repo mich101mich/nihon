@@ -1,0 +1,76 @@
+button {
+	border: none;
+	padding: 8px 10px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1em;
+	-webkit-transition-duration: 0.2s;
+	/* Safari */
+	transition-duration: 0.2s;
+	background-color: #cecece;
+}
+
+button:hover {
+	background-color: #acacac;
+}
+
+.goButton {
+	background-color: #20ce20;
+}
+.goButton:hover {
+	background-color: #00ac00;
+}
+
+.cancelButton {
+	background-color: #ce2020;
+}
+.cancelButton:hover {
+	background-color: #ac0000;
+}
+
+ol {
+	list-style-type: none;
+	margin: 10px;
+	padding-left: 0px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+	padding: 5px;
+}
+table {
+	margin: 5px;
+}
+
+#overviewTable th, #overviewTable td {
+	cursor: pointer;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+}
+
+#wordListTable, #addWordTable {
+	width: 100%;
+}
+
+#wordListTable th {
+	cursor: pointer;
+}
+
+#wordList > div {
+	overflow-y: auto;
+	max-height: 40vh;
+}
+
+select {
+	width: 100%;
+}
+input {
+	width: 100%;
+}
