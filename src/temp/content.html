@@ -5,17 +5,27 @@
 
 	<br>
 
+	<input type="search" placeholder="Search" id="searchBox">
+	<input type="checkbox" id="searchIsGlobal" checked>
+	<label for="searchIsGlobal">Search all words</label>
+
+	<br>
+	<br>
+
 	<div id="wordList" hidden>
+
 		<div id="wordListTitle"></div>
-		<table id="wordListTable">
-			<tr>
-				<th style="width: 8%" id="wordListHeaderType">Type</th>
-				<th style="width: 24%" id="wordListHeaderEnglish">English</th>
-				<th style="width: 24%" id="wordListHeaderJapanese">Japanese</th>
-				<th style="width: 24%" id="wordListHeaderRomaji">Romaji</th>
-				<th style="width: 20%">Actions</th>
-			</tr>
-		</table>
+		<div id="wordListTableWrapper">
+			<table id="wordListTable">
+				<tr>
+					<th style="width: 8%" id="wordListHeaderType">Type</th>
+					<th style="width: 24%" id="wordListHeaderEnglish">English</th>
+					<th style="width: 24%" id="wordListHeaderJapanese">Japanese</th>
+					<th style="width: 24%" id="wordListHeaderRomaji">Romaji</th>
+					<th style="width: 20%">Actions</th>
+				</tr>
+			</table>
+		</div>
 		<br>
 		<button id="wordListHide">Hide</button>
 

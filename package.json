@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "src/main.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"server": "webpack-dev-server",
+		"compile": "webpack",
+		"watch": "webpack -w"
 	},
 	"repository": {
 		"type": "git",
@@ -18,7 +20,8 @@
 	"homepage": "https://github.com/mich101mich/nihon#readme",
 	"devDependencies": {
 		"ts-loader": "^5.3.3",
-		"webpack": "^4.29.6"
+		"webpack": "^4.29.6",
+		"webpack-cli": "^3.3.0"
 	},
 	"dependencies": {
 		"firebase": "^5.9.2",

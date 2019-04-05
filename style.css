@@ -44,7 +44,8 @@ table, th, td {
 th, td {
 	padding: 5px;
 }
-table {
+
+#overviewTable {
 	margin: 5px;
 }
 
@@ -55,7 +56,17 @@ table {
 	text-align: center;
 }
 
-#wordListTable, #addWordTable {
+#searchBox {
+	width: 100%;
+}
+
+#wordListTableWrapper {
+	margin: 5px;
+	overflow-y: auto;
+	max-height: 40vh;
+}
+
+#wordListTable {
 	width: 100%;
 }
 
@@ -63,15 +74,18 @@ table {
 	cursor: pointer;
 }
 
-#wordList > div {
-	overflow-y: auto;
-	max-height: 40vh;
+#testMeForm > table {
+	margin: 5px;
 }
-
-select {
+#testMeForm > input {
 	width: 100%;
 }
-input {
+
+#addWordTable {
+	margin: 5px;
+	width: 100%;
+}
+#addWordTable > input, #addWordTable > select {
 	width: 100%;
 }
 

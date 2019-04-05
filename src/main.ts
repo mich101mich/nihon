@@ -5,6 +5,7 @@ import { AddWord } from "./components/addWord";
 import { Overview } from "./components/overview";
 import { TestMe } from "./components/testMe";
 import { WordList } from "./components/wordList";
+import { Search } from "./components/search";
 import "./defines";
 
 {
@@ -28,6 +29,7 @@ Overview.init();
 WordList.init();
 TestMe.init();
 AddWord.init();
+Search.init();
 Boxes.init(firestore.collection("nihon"));
 
 declare global {

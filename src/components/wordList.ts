@@ -1,6 +1,7 @@
 import { Boxes, BOX_NEW } from "../boxes";
 import { Button, capitalize, Div, Header, headers, languages, Table, Th } from "../types";
 import { Type, Word } from "../word";
+import { Search } from "./search";
 
 export class WordList {
 	static base: Div;
@@ -56,24 +57,42 @@ export class WordList {
 
 	static refresh() {
 
-		if (this.shownBox == -1) {
+		if (this.shownBox == -1 && (!Search.isGlobal || !Search.hasSearch())) {
 			this.base.hidden = true;
 			return;
 		}
 
+		if (Search.isGlobal && Search.hasSearch()) {
+			this.shownBox = -1;
+		}
+
 		this.base.hidden = false;
 
-		this.title.innerText = "Showing Box: " + Boxes.getName(this.shownBox);
+		this.title.innerText = "Showing Box: " + (this.shownBox == -1 ? "Search results" : Boxes.getName(this.shownBox));
 
 		while (this.table.rows.length > 1) { // keep header row
 			this.table.deleteRow(1);
 		}
 
-		const currentBox = Boxes.data[this.shownBox].sort((a: Word, b: Word) => {
-			const va = a[this.sortedHeader];
-			const vb = b[this.sortedHeader];
-			return (va < vb ? -1 : 1) * (this.sortedAsc ? 1 : -1);
-		});
+		let currentBox: Word[];
+
+		if (Search.isGlobal) {
+			currentBox = Boxes.data.reduce((arr, box) => {
+				arr.push.apply(arr, box);
+				return arr;
+			}, []);
+		} else {
+			currentBox = Boxes.data[this.shownBox]
+		}
+
+		console.log(Boxes.data);
+
+		currentBox = currentBox.filter(Search.filter())
+			.sort((a: Word, b: Word) => {
+				const va = a[this.sortedHeader];
+				const vb = b[this.sortedHeader];
+				return (va < vb ? -1 : 1) * (this.sortedAsc ? 1 : -1);
+			});
 
 		for (const word of currentBox) {
 			const row = document.createElement("tr");
